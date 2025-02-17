@@ -7,6 +7,7 @@ public class RobotCommandParser
     private static readonly Dictionary<string, IRobotCommand> _commands = new Dictionary<string, IRobotCommand>
     {
         { RobotCommandKeys.PLACE, new RobotPlaceCommand() },
+        { RobotCommandKeys.REPORT, new RobotReportCommand() },
     };
 
     public bool TryParse(Robot robot, string command)
