@@ -13,7 +13,7 @@ class Program
             //Console.WriteLine("Enter a command: ");
             var command = Console.ReadLine();
 
-            if (!string.IsNullOrEmpty(command) && command.ToUpper() == "EXIT")
+            if (!string.IsNullOrEmpty(command) && command.ToUpper() == CommandKeys.EXIT)
             {
                 break;
             }
