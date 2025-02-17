@@ -28,6 +28,11 @@ public class Robot
         IsPlaced = true;
     }
 
+    public void Rotate(int direction)
+    {
+        Direction = FaceDirections.GetNextDirection(Direction, direction);
+    }
+
     override public string ToString()
     {
         return $"{X},{Y},{Direction}";

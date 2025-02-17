@@ -8,6 +8,8 @@ public class RobotCommandParser
     {
         { RobotCommandKeys.PLACE, new RobotPlaceCommand() },
         { RobotCommandKeys.REPORT, new RobotReportCommand() },
+        { RobotCommandKeys.LEFT, new RobotRotateLeftCommand() },
+        { RobotCommandKeys.RIGHT, new RobotRotateRightCommand() }
     };
 
     public bool TryParse(Robot robot, string command)
