@@ -1,4 +1,7 @@
-﻿namespace RobotSimulator;
+﻿using RobotSimulator.Controller;
+using RobotSimulator.Model;
+
+namespace RobotSimulator;
 
 class Program
 {
@@ -7,6 +10,8 @@ class Program
         Console.WriteLine("Welcome to the Robot Simulator!");
         Console.WriteLine("Commands: PLACE, MOVE, LEFT, RIGHT, REPORT");
         Console.WriteLine("Type 'EXIT' to quit the program.");
+
+        var robotCommandParser = new RobotCommandParser();
 
         while (true)
         {
@@ -17,8 +22,11 @@ class Program
             {
                 break;
             }
-
-            Console.WriteLine($"You entered: {command}");
+            
+            if (!robotCommandParser.TryParse(command))
+            {
+                Console.WriteLine($"{command} is invalid.");
+            }
         }
     }
 }
