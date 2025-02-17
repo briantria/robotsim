@@ -7,9 +7,10 @@ public class RobotCommandParser
     private static readonly Dictionary<string, IRobotCommand> _commands = new Dictionary<string, IRobotCommand>
     {
         { RobotCommandKeys.PLACE, new RobotPlaceCommand() },
+        { RobotCommandKeys.REPORT, new RobotReportCommand() },
     };
 
-    public bool TryParse(string command)
+    public bool TryParse(Robot robot, string command)
     {
         var tokens = command.Split(' ');
         var key = tokens[0].ToUpper();
@@ -20,7 +21,7 @@ public class RobotCommandParser
         }
 
         var robotCommand = _commands[key];
-        robotCommand.Execute(command);
+        robotCommand.Execute(robot, command);
         return true;
     }
 }

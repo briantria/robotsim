@@ -2,8 +2,37 @@ namespace RobotSimulator.Model;
 
 public class RobotPlaceCommand : IRobotCommand
 {
-    public void Execute(string command)
+    public void Execute(Robot robot, string command)
     {
-        Console.WriteLine("Executing PLACE Command");
+        var parts = command.Split(' ');
+        if (parts.Length < 2)
+        {
+            return;
+        }
+
+        var positionParts = parts[1].Split(',');
+        if (positionParts.Length < 3) 
+        {
+            return;
+        }
+
+        if (!int.TryParse(positionParts[0], out int x) ||
+            !int.TryParse(positionParts[1], out int y)) 
+        {
+            return;
+        }
+
+        // todo: validate position
+
+        var dir = positionParts[2].ToUpper();
+        if (!FaceDirections.IsValid(dir)) 
+        {
+            return;
+        }
+
+        robot.X = x;
+        robot.Y = y;
+        robot.IsPlaced = true;
+        robot.Direction = dir;
     }
 }
