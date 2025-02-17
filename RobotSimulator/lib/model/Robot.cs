@@ -7,6 +7,14 @@ public class Robot
     public int Y { get; set; }
     public string Direction { get; set; }
 
+    private Map _map;
+
+    public Robot(Map map)
+    {
+        IsPlaced = false;
+        _map = map;
+    }
+
     override public string ToString()
     {
         return $"{X},{Y},{Direction}";
