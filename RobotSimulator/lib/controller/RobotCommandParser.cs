@@ -18,7 +18,7 @@ public class RobotCommandParser
         var tokens = command.Split(' ');
         var key = tokens[0].ToUpper();
 
-        if (!_commands.ContainsKey(key))
+        if (!_commands.ContainsKey(key.Trim()))
         {
             return false;
         }
