@@ -7,12 +7,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        var map = new Map(5, 5);
+        var robot = new Robot(map);
+        var robotCommandParser = new RobotCommandParser();
+
         Console.WriteLine("Welcome to the Robot Simulator!");
         Console.WriteLine("Commands: PLACE, MOVE, LEFT, RIGHT, REPORT");
         Console.WriteLine("Type 'EXIT' to quit the program.");
-
-        var robotCommandParser = new RobotCommandParser();
-        var robot = new Robot();
 
         while (true)
         {

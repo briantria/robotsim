@@ -7,6 +7,27 @@ public class Robot
     public int Y { get; set; }
     public string Direction { get; set; }
 
+    private Map _map;
+
+    public Robot(Map map)
+    {
+        IsPlaced = false;
+        _map = map;
+    }
+
+    public void Place(int x, int y, string direction)
+    {
+        if (!_map.IsPositionWithinBounds(x, y) || !FaceDirections.IsValid(direction))
+        {
+            return;
+        }
+
+        X = x;
+        Y = y;
+        Direction = direction;
+        IsPlaced = true;
+    }
+
     override public string ToString()
     {
         return $"{X},{Y},{Direction}";

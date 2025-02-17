@@ -22,17 +22,12 @@ public class RobotPlaceCommand : IRobotCommand
             return;
         }
 
-        // todo: validate position
-
         var dir = positionParts[2].ToUpper();
         if (!FaceDirections.IsValid(dir)) 
         {
             return;
         }
 
-        robot.X = x;
-        robot.Y = y;
-        robot.IsPlaced = true;
-        robot.Direction = dir;
+        robot.Place(x, y, dir);
     }
 }
