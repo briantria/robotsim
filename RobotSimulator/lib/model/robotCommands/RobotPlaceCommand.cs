@@ -2,7 +2,7 @@ namespace RobotSimulator.Model;
 
 public class RobotPlaceCommand : IRobotCommand
 {
-    public void Execute(string command)
+    public void Execute(Robot robot, string command)
     {
         Console.WriteLine("Executing PLACE Command");
     }
