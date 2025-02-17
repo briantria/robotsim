@@ -17,7 +17,6 @@ class Program
 
         while (true)
         {
-            //Console.WriteLine("Enter a command: ");
             var command = Console.ReadLine();
 
             if (!string.IsNullOrEmpty(command) && command.ToUpper() == CommandKeys.EXIT)

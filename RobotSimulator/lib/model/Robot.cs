@@ -33,6 +33,36 @@ public class Robot
         Direction = FaceDirections.GetNextDirection(Direction, direction);
     }
 
+    public void Move()
+    {
+        var nextX = X;
+        var nextY = Y;
+
+        switch (Direction)
+        {
+            case FaceDirections.NORTH:
+                nextY++;
+                break;
+            case FaceDirections.EAST:
+                nextX++;
+                break;
+            case FaceDirections.SOUTH:
+                nextY--;
+                break;
+            case FaceDirections.WEST:
+                nextX--;
+                break;
+        }
+
+        if (!_map.IsPositionWithinBounds(nextX, nextY))
+        {
+            return;
+        }
+
+        X = nextX;
+        Y = nextY;
+    }
+
     override public string ToString()
     {
         return $"{X},{Y},{Direction}";

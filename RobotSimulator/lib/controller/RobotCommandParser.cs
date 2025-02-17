@@ -8,6 +8,7 @@ public class RobotCommandParser
     {
         { RobotCommandKeys.PLACE, new RobotPlaceCommand() },
         { RobotCommandKeys.REPORT, new RobotReportCommand() },
+        { RobotCommandKeys.MOVE, new RobotMoveCommand() },
         { RobotCommandKeys.LEFT, new RobotRotateLeftCommand() },
         { RobotCommandKeys.RIGHT, new RobotRotateRightCommand() }
     };
